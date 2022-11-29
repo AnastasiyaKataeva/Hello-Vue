@@ -13,9 +13,9 @@
         <h1> is ok: {{ isOk ? 'im OK' : 'im not OK'  }}</h1>
         <a v-bind:href="url">Google</a>
         <hr>
-        <h1 v-on:mouseover="changeColor">Счетчик: {{ counter }}</h1>
-        <button v-on:click="riseCount(5)">Увеличить на 5</button>
-        <button v-on:click="riseCount(10)">Увеличить на 10</button>
+        <h1 v-on:mouseover="changeColor">{{ title}} = {{ counter }}</h1>
+        <button v-on:click="riseCount(5 , 'Увеличено на 5', $event)">Увеличить на 5</button>
+        <button v-on:click="riseCount(10 ,'Увеличено на 5', $event)">Увеличить на 10</button>
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -27,6 +27,7 @@
             isOk: false,
             url: 'http://google.com',
             counter: 0,
+            title: "Счетчик"
             },
             methods: {
                 changeName: function(event) {
@@ -38,8 +39,16 @@
                 changeColor: function (event) {
                     event.target.style.color = 'red'
                 },
-                riseCount: function (num) {
+                riseCount: function (num, str, event) {
                     this.counter += num
+                    this.title = str
+
+                    if( num === 5) {
+                        event.target.style.color = 'red'
+                    } else {
+                        event.target.style.color = 'yellow'
+
+                    }
                 }
             }
         })
