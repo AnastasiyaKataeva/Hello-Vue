@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello vue</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-on:input="changeName">
+        <h1>Hello {{ name }}</h1>
+        <h1>number: {{ 20 + 30 }}</h1>
+        <h1> {{ sayHello() }}</h1>
+        <h1> is ok: {{ isOk ? 'im OK' : 'im not OK'  }}</h1>
+        <a v-bind:href="url">Google</a>
+        <hr>
+        <h1 v-on:mouseover="changeColor">Счетчик: {{ counter }}</h1>
+        <button v-on:click="riseCount(5)">Увеличить на 5</button>
+        <button v-on:click="riseCount(10)">Увеличить на 10</button>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+            name: 'Vue',
+            isOk: false,
+            url: 'http://google.com',
+            counter: 0,
+            },
+            methods: {
+                changeName: function(event) {
+                    this.name = event.target.value
+                },
+                sayHello: function () {
+                    return   'Hello' + ' ' + this.name + '!'
+                },
+                changeColor: function (event) {
+                    event.target.style.color = 'red'
+                },
+                riseCount: function (num) {
+                    this.counter += num
+                }
+            }
+        })
+    </script>
+</body>
+</html>
