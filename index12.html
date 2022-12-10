@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(name, index) in people"> {{ index + 1 }}. {{ name }}</li>
+        </ul>
+        <ul>
+            <li v-for="men in person"> {{ men.name }}, {{men.age}} лет</li>
+        </ul>
+        <ul>
+            <li v-for="(value, key) in fruit"> {{key}} : {{value}}</li>
+        </ul>
+        <ul>
+            <li v-for="num in 10"> {{num}}</li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'Vue',
+                people: [
+                    'Vlad',
+                    'Elena',
+                    'Victor',
+                    'Anastasiya',
+                    'Sonya',
+                ],
+                person: [
+                    {name: 'Vlad', age: '34'},
+                    {name: 'Elena', age: '35'},
+                    {name: 'Anton', age: '56'},
+                    {name: 'Lada', age: '24'},
+                    {name: 'Sonya', age: '12'},
+                    {name: 'Alina', age: '22'},
+                ],
+                fruit: {
+                    name: 'Melon',
+                    price: '50$',
+                    count: '20'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
