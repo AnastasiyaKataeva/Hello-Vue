@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-if="isVisible">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, consequuntur.</h1>
+        <h3 v-else>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate illum mollitia suscipit?</h3>
+        <button @click="isVisible = !isVisible">toglle</button>
+        <div>
+            <p v-if="type === 'a'">A</p>
+            <p v-else-if="type === 'b'">B</p>
+            <p v-else-if="type === 'c'">C</p>
+            <p v-else-if="type === 'd'">D</p>
+            <p v-else>not match</p>
+            <input type="text" v-model="type">
+        </div>
+        <template v-if="isVisible">
+            <h1>Lorem ipsum dolor.</h1>
+            <h1>Lorem ipsum dolor.</h1>
+        </template>
+        <template v-else>
+            <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, voluptatem.</h1>
+            <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, quidem!</h1>
+        </template>
+        <div>
+            <h1 v-show="isVisible">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ducimus esse est porro tempora voluptatem!</h1>
+            <h2 v-show="!isVisible">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, iusto.</h2>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'Vue',
+                isVisible: true,
+                type:'a'
+            }
+        })
+    </script>
+</body>
+</html>
