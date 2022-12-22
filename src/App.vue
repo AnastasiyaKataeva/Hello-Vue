@@ -2,7 +2,7 @@
   <div id="app">
     <img src="./assets/logo.png">
     <h1>My car name: {{ carName }}</h1>
-    <app-car :car-name="carName" :car-year="carYear" @changeName="carName = $event"></app-car>
+    <app-car :car-name="carName" :car-year="carYear" @changeName="carName = $event" :change-from-audi="changeModel"></app-car>
   </div>
 </template>
 
@@ -14,6 +14,11 @@ export default {
     return {
       carName: 'Mazda',
       carYear: '2009'
+    }
+  },
+  methods: {
+    changeModel(){
+      this.carName = 'Audi'
     }
   },
  components: {

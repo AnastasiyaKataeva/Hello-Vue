@@ -3,6 +3,7 @@
   <h1>Name: {{carName}}/{{reverseName}}</h1>
   <h2>Year: {{carYear}}</h2>
   <button @click="changeCar">Change car</button>
+  <button @click="changeFromAudi">Change from parent</button>
 </div>
 </template>
 
@@ -15,11 +16,14 @@ export default {
     },
     carYear: {
       type: Number
+    },
+    changeFromAudi: {
+      type: Function
     }
   },
   methods:{
     changeCar() {
-      this.carName='Reno',
+      this.carName = 'Reno',
        this.$emit('changeName', this.carName)
     }
   },
